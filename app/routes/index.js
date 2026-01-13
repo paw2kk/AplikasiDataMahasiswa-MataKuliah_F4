@@ -109,7 +109,45 @@ router.post('/matakuliah/delete/:id', async (req, res) => {
     res.status(500).send('Gagal menghapus mata kuliah');
   }
 });
+/* =====================
+   UPDATE MAHASISWA
+===================== */
 
+router.post('/mahasiswa/update/:id', async (req, res) => {
+  const { nama, nim, jurusan } = req.body;
+  const { id } = req.params;
+
+  try {
+    await req.db.query(
+      'UPDATE mahasiswa SET nama = ?, nim = ?, jurusan = ? WHERE id = ?',
+      [nama, nim, jurusan, id]
+    );
+    res.redirect('/');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Gagal mengupdate mahasiswa');
+  }
+});
+
+/* =====================
+   UPDATE MATA KULIAH
+===================== */
+
+router.post('/matakuliah/update/:id', async (req, res) => {
+  const { kode_mk, nama_mk, sks } = req.body;
+  const { id } = req.params;
+
+  try {
+    await req.db.query(
+      'UPDATE matakuliah SET kode_mk = ?, nama_mk = ?, sks = ? WHERE id = ?',
+      [kode_mk, nama_mk, sks, id]
+    );
+    res.redirect('/');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Gagal mengupdate mata kuliah');
+  }
+});
 
 
 module.exports = router;

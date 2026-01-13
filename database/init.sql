@@ -35,7 +35,7 @@ INSERT INTO mahasiswa (nama, nim, jurusan) VALUES
 ('Eko Prasetyo', '220105', 'Sistem Informasi');
 
 -- Insert data contoh mata kuliah
-INSERT INTO mata_kuliah (kode_mk, nama_mk, sks, mahasiswa_id) VALUES
+INSERT INTO matakuliah (kode_mk, nama_mk, sks, mahasiswa_id) VALUES
 ('TIF101', 'Pemrograman Web', 3, 1),
 ('TIF102', 'Basis Data', 3, 1),
 ('TIF103', 'Algoritma dan Struktur Data', 4, 1),
